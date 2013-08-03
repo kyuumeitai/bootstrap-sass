@@ -1,10 +1,6 @@
 # Bootstrap for Sass
 
-[![Build Status](https://secure.travis-ci.org/thomas-mcdonald/bootstrap-sass.png?branch=master)](http://travis-ci.org/thomas-mcdonald/bootstrap-sass)
-
-`bootstrap-sass` is an Sass-powered version of [Twitter's Bootstrap](http://github.com/twitter/bootstrap), ready to drop right into your Sass powered applications.
-
-Enjoy.
+`bootstrap-sass` is an Sass-powered version of [Bootstrap](https://github.com/twbs/bootstrap), ready to drop right into your Sass powered applications.
 
 ## Usage
 
@@ -13,43 +9,42 @@ Enjoy.
 In your Gemfile:
 
 ```ruby
+<<<<<<< HEAD
 gem 'sass-rails', '~> 3.2'
 gem 'bootstrap-sass', '~> 2.3.2.1'
+=======
+gem 'sass-rails',   '~> 3.2.3'
+gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.git', :branch => '3'
+>>>>>>> 3
 ```
 
 `bundle install` and restart your server to make the files available.
 
+<<<<<<< HEAD
 #### CSS
 
 Import Bootstrap in an SCSS file (for example, `application.css.scss`) to get all of Bootstrap's styles, mixins and variables! We recommend against using `//= require` directives, since none of your other stylesheets will be [able to use](https://github.com/thomas-mcdonald/bootstrap-sass/issues/79#issuecomment-4428595) the awesome mixins that Bootstrap has defined.
+=======
+## Upstream Converter
+>>>>>>> 3
 
-```css
-@import "bootstrap";
-```
+Keeping bootstrap-sass in sync with upstream changes from Bootstrap is an error prone and time consuming manual process.
+This branch is specifically concerned with automating that process as much as possible to allow a much faster release cycle.
 
-#### Javascripts
+Upstream changes to the Bootstrap project can now be pulled in using the `convert` rake task.
 
-You can include the Bootstrap javascripts through two methods. In this case, Sprocket's `//= require` directives are useful, since there is no better alternative.
+Here's an example run that would pull down the `3.0.0-wip` branch from the main twbs/bootstrap repo:
 
-We have a helper that includes all available javascripts:
+    % bundle exec rake 'convert[3.0.0-wip]'
 
-```js
-// Loads all Bootstrap javascripts
-//= require bootstrap
-```
+The latest converter script is located [here](https://github.com/thomas-mcdonald/bootstrap-sass/blob/3/tasks/converter.rb) and does the following:
 
-You can also load individual modules, provided you sort out any related dependencies.
+* Converts upstream bootstrap LESS files to its matching SCSS file.
+* Copies all upstream JavaScript into `vendor/assets/javascripts/bootstrap`
+* Generates a javascript manifest at `vendor/assets/javascripts/bootstrap.js`
+* Copies all upstream font files into `vendor/assets/fonts`
 
-```js
-//= require bootstrap-scrollspy
-//= require bootstrap-modal
-//= require bootstrap-dropdown
-```
-
-Simples.
-
-### Compass
-
+<<<<<<< HEAD
 `bootstrap-sass` 2.0 now comes with support for Compass, meaning projects that don't use Rails can get in on the fun Bootstrap web.
 
 #### New project
@@ -121,9 +116,10 @@ gem 'bootstrap-sass', '~> 2.3.2.1'
 ```
 
 Don't use the standard `~> 2.x.y`. Your apps may break.
+=======
+This LESS to SCSS conversion is pretty good, but not perfect. So manual fixes to the resulting SCSS will be necessary for now.
+Please submit GitHub issues tagged with `conversion` to help track current shortcomings of the conversion process.
+>>>>>>> 3
 
 ## Who
 bootstrap-sass is a project by [Thomas McDonald](https://twitter.com/#!/thomasmcdonald_), with support from [other awesome people](https://github.com/thomas-mcdonald/bootstrap-sass/graphs/contributors).
-
-## You're in good company
-bootstrap-sass is used to build some awesome projects, including [Diaspora](http://diasporaproject.org/), [rails_admin](https://github.com/sferik/rails_admin), Michael Hartl's [Rails Tutorial](http://railstutorial.org/), [gitlabhq](http://gitlabhq.com/) and [kandan](http://kandanapp.com/). Using bootstrap-sass? I'd love it if you let me know.

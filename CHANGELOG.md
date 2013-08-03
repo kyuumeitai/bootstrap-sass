@@ -1,5 +1,6 @@
 # Changelog
 
+<<<<<<< HEAD
 ## 2.3.2.0
 
 * Update to Bootstrap 2.3.2 - *Dan Allen*
@@ -18,6 +19,11 @@
 
 * Change how image_url is handled internally - *Tristan Harward*
 * Fix some font variables not having `!default` - *Thomas McDonald*
+=======
+## 3.0.0.0
+* Ported rake task from vwall/compass-twitter-bootstrap to convert Bootstrap upstream - *Peter Gumeson*
+* Moved javascripts from `bootstrap-component.js` to `bootstrap/component.js` - *Peter Gumeson*
+>>>>>>> 3
 
 ## 2.3.0.0
 * [#290] Update to Bootstrap 2.3.0 - *Tristan Harward*
